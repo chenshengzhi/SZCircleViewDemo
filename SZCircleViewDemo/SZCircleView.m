@@ -103,12 +103,16 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(numberRowInCircleView:)]) {
         _rowCount = [_circleDelegate numberRowInCircleView:self];
     }
-    if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] init];
-        [self addSubview:_pageControl];
+    if (_rowCount > 1) {
+        if (!_pageControl) {
+            _pageControl = [[UIPageControl alloc] init];
+            [self addSubview:_pageControl];
+        }
+        _pageControl.size = [_pageControl sizeForNumberOfPages:_rowCount];
+        _pageControl.numberOfPages = _rowCount;
+    } else {
+        [_pageControl removeFromSuperview];
     }
-    _pageControl.size = [_pageControl sizeForNumberOfPages:_rowCount];
-    _pageControl.numberOfPages = _rowCount;
     
     if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:pageControloriginWithSize:)]) {
         _pageControlOrigin = [_circleDelegate circleView:self pageControloriginWithSize:_pageControl.size];
