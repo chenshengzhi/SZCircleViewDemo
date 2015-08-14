@@ -34,6 +34,8 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 
 @property (nonatomic) CGPoint pageControlOrigin;
 
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesutre;
+
 @end
 
 @implementation SZCircleView
@@ -49,6 +51,9 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     
     _visiableImageViewArray = [NSMutableArray array];
     _dequeueImageViewArray = [NSMutableArray array];
+    
+    _tapGesutre = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandle:)];
+    [self addGestureRecognizer:_tapGesutre];
 }
 
 - (instancetype)init {
@@ -230,6 +235,19 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
         }
     }
     return nil;
+}
+
+- (void)tapHandle:(UITapGestureRecognizer *)tapGesture {
+    CGPoint point = [tapGesture locationInView:self];
+    for (UIImageView *iv in self.visiableImageViewArray) {
+        if (CGRectContainsPoint(iv.frame, point)) {
+            NSInteger datasourceIndex = [self datasourceIndexWithTag:iv.tag];
+            if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:tapAtRow:)]) {
+                [_circleDelegate circleView:self tapAtRow:datasourceIndex];
+            }
+            return;
+        }
+    }
 }
 
 #pragma mark - UIScrollViewDelegate -
