@@ -15,7 +15,7 @@
 		240A0CD81B7C8BEA00413F0A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240A0CD61B7C8BEA00413F0A /* LaunchScreen.xib */; };
 		240A0CE41B7C8BEA00413F0A /* SZCircleViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CE31B7C8BEA00413F0A /* SZCircleViewDemoTests.m */; };
 		240A0CF11B7C8C0100413F0A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CED1B7C8C0100413F0A /* UIView+Frame.m */; };
-		240A0CF21B7C8C0100413F0A /* SZCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CEF1B7C8C0100413F0A /* SZCircleView.m */; };
+		243114D81C0D846900FC1323 /* SZCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 243114D61C0D846900FC1323 /* SZCircleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +43,9 @@
 		240A0CE21B7C8BEA00413F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		240A0CE31B7C8BEA00413F0A /* SZCircleViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZCircleViewDemoTests.m; sourceTree = "<group>"; };
 		240A0CED1B7C8C0100413F0A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		240A0CEE1B7C8C0100413F0A /* SZCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCircleView.h; sourceTree = "<group>"; };
-		240A0CEF1B7C8C0100413F0A /* SZCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCircleView.m; sourceTree = "<group>"; };
 		240A0CF01B7C8C0100413F0A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		243114D61C0D846900FC1323 /* SZCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCircleView.m; sourceTree = "<group>"; };
+		243114D71C0D846900FC1323 /* SZCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCircleView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +69,7 @@
 		240A0CBB1B7C8BEA00413F0A = {
 			isa = PBXGroup;
 			children = (
+				243114D21C0D842600FC1323 /* SZCircleView */,
 				240A0CC61B7C8BEA00413F0A /* SZCircleViewDemo */,
 				240A0CE01B7C8BEA00413F0A /* SZCircleViewDemoTests */,
 				240A0CC51B7C8BEA00413F0A /* Products */,
@@ -92,8 +93,6 @@
 				240A0CCE1B7C8BEA00413F0A /* ViewController.h */,
 				240A0CCF1B7C8BEA00413F0A /* ViewController.m */,
 				240A0CED1B7C8C0100413F0A /* UIView+Frame.m */,
-				240A0CEE1B7C8C0100413F0A /* SZCircleView.h */,
-				240A0CEF1B7C8C0100413F0A /* SZCircleView.m */,
 				240A0CF01B7C8C0100413F0A /* UIView+Frame.h */,
 				240A0CD11B7C8BEA00413F0A /* Main.storyboard */,
 				240A0CD41B7C8BEA00413F0A /* Images.xcassets */,
@@ -127,6 +126,15 @@
 				240A0CE21B7C8BEA00413F0A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		243114D21C0D842600FC1323 /* SZCircleView */ = {
+			isa = PBXGroup;
+			children = (
+				243114D71C0D846900FC1323 /* SZCircleView.h */,
+				243114D61C0D846900FC1323 /* SZCircleView.m */,
+			);
+			path = SZCircleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +241,7 @@
 				240A0CD01B7C8BEA00413F0A /* ViewController.m in Sources */,
 				240A0CCD1B7C8BEA00413F0A /* AppDelegate.m in Sources */,
 				240A0CCA1B7C8BEA00413F0A /* main.m in Sources */,
-				240A0CF21B7C8C0100413F0A /* SZCircleView.m in Sources */,
+				243114D81C0D846900FC1323 /* SZCircleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +436,7 @@
 				240A0CE91B7C8BEA00413F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		240A0CEA1B7C8BEA00413F0A /* Build configuration list for PBXNativeTarget "SZCircleViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +445,7 @@
 				240A0CEC1B7C8BEA00413F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

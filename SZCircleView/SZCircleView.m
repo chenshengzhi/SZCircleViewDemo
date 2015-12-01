@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 
 @implementation SZCircleView
 
-#pragma mark - 什么周期 -
+#pragma mark - 生命周期 -
 - (void)setup {
     self.delegate = self;
     self.pagingEnabled = YES;
@@ -119,8 +119,8 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
         [_pageControl removeFromSuperview];
     }
     
-    if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:pageControloriginWithSize:)]) {
-        _pageControlOrigin = [_circleDelegate circleView:self pageControloriginWithSize:_pageControl.size];
+    if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:pageControlOriginWithSize:)]) {
+        _pageControlOrigin = [_circleDelegate circleView:self pageControlOriginWithSize:_pageControl.size];
     } else {
         _pageControlOrigin = CGPointMake(self.width/2 - _pageControl.width/2, self.height-_pageControl.height-5);
     }
