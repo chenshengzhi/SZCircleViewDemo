@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SZCircleView.h"
+#import "UIView+Frame.h"
 
 @interface ViewController () <SZCircleViewDelegate>
 

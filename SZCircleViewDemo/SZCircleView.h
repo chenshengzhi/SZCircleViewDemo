@@ -37,6 +37,6 @@
 
 - (void)circleView:(SZCircleView *)circleView tapAtRow:(NSInteger)tapRow;
 
-- (CGPoint)circleView:(SZCircleView *)circleView pageControlOriginWithSize:(CGSize)pageControlSize;
+- (CGPoint)circleView:(SZCircleView *)circleView pageControloriginWithSize:(CGSize)pageControlSize;
 
 @end
