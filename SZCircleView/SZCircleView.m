@@ -102,6 +102,8 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 
 #pragma mark - 外部方法 -
 - (void)reloadData {
+    [self resetTimer];
+    
     if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(numberRowInCircleView:)]) {
         _rowCount = [_circleDelegate numberRowInCircleView:self];
     }
@@ -127,8 +129,6 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     frame.origin = _pageControlOrigin;
     _pageControl.frame = frame;
     
-    [self resetTimer];
-    
     [self relayout];
 }
 
@@ -137,11 +137,8 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     if (_timer) {
         [_timer invalidate];
     }
-    _timer = nil;
-    if (_rowCount > 1) {
-        _timer = [NSTimer timerWithTimeInterval:_autoScrollInterval target:self selector:@selector(autoScrollForTimer:) userInfo:nil repeats:YES];
-        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-    }
+    _timer = [NSTimer timerWithTimeInterval:_autoScrollInterval target:self selector:@selector(autoScrollForTimer:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)autoScrollForTimer:(NSTimer *)timer {
