@@ -7,7 +7,7 @@
 //
 
 #import "SZCircleView.h"
-#import "UIView+Frame.h"
+#import "UIView+SZFrameHelper.h"
 
 typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     SZCircleViewDirectionNone,

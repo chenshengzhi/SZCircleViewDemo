@@ -1,0 +1,10 @@
+PODS:
+  - SZFrameHelper (0.0.1)
+
+DEPENDENCIES:
+  - SZFrameHelper
+
+SPEC CHECKSUMS:
+  SZFrameHelper: 4a58940ba8dcddb69ea21efb2086d6b3b687f95d
+
+COCOAPODS: 0.39.0
