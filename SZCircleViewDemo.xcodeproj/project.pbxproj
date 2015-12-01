@@ -14,8 +14,7 @@
 		240A0CD51B7C8BEA00413F0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240A0CD41B7C8BEA00413F0A /* Images.xcassets */; };
 		240A0CD81B7C8BEA00413F0A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240A0CD61B7C8BEA00413F0A /* LaunchScreen.xib */; };
 		240A0CE41B7C8BEA00413F0A /* SZCircleViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CE31B7C8BEA00413F0A /* SZCircleViewDemoTests.m */; };
-		240A0CF11B7C8C0100413F0A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CED1B7C8C0100413F0A /* UIView+Frame.m */; };
-		240A0CF21B7C8C0100413F0A /* SZCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CEF1B7C8C0100413F0A /* SZCircleView.m */; };
+		24101BB91C0D7CF5009C37AB /* SZCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24101BB81C0D7CF5009C37AB /* SZCircleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +41,8 @@
 		240A0CDD1B7C8BEA00413F0A /* SZCircleViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SZCircleViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		240A0CE21B7C8BEA00413F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		240A0CE31B7C8BEA00413F0A /* SZCircleViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZCircleViewDemoTests.m; sourceTree = "<group>"; };
-		240A0CED1B7C8C0100413F0A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		240A0CEE1B7C8C0100413F0A /* SZCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCircleView.h; sourceTree = "<group>"; };
-		240A0CEF1B7C8C0100413F0A /* SZCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCircleView.m; sourceTree = "<group>"; };
-		240A0CF01B7C8C0100413F0A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		24101BB71C0D7CF5009C37AB /* SZCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCircleView.h; sourceTree = "<group>"; };
+		24101BB81C0D7CF5009C37AB /* SZCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCircleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +66,7 @@
 		240A0CBB1B7C8BEA00413F0A = {
 			isa = PBXGroup;
 			children = (
+				24101BB61C0D7CF5009C37AB /* SZCircleView */,
 				240A0CC61B7C8BEA00413F0A /* SZCircleViewDemo */,
 				240A0CE01B7C8BEA00413F0A /* SZCircleViewDemoTests */,
 				240A0CC51B7C8BEA00413F0A /* Products */,
@@ -91,10 +89,6 @@
 				240A0CCC1B7C8BEA00413F0A /* AppDelegate.m */,
 				240A0CCE1B7C8BEA00413F0A /* ViewController.h */,
 				240A0CCF1B7C8BEA00413F0A /* ViewController.m */,
-				240A0CED1B7C8C0100413F0A /* UIView+Frame.m */,
-				240A0CEE1B7C8C0100413F0A /* SZCircleView.h */,
-				240A0CEF1B7C8C0100413F0A /* SZCircleView.m */,
-				240A0CF01B7C8C0100413F0A /* UIView+Frame.h */,
 				240A0CD11B7C8BEA00413F0A /* Main.storyboard */,
 				240A0CD41B7C8BEA00413F0A /* Images.xcassets */,
 				240A0CD61B7C8BEA00413F0A /* LaunchScreen.xib */,
@@ -127,6 +121,15 @@
 				240A0CE21B7C8BEA00413F0A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24101BB61C0D7CF5009C37AB /* SZCircleView */ = {
+			isa = PBXGroup;
+			children = (
+				24101BB71C0D7CF5009C37AB /* SZCircleView.h */,
+				24101BB81C0D7CF5009C37AB /* SZCircleView.m */,
+			);
+			path = SZCircleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,11 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				240A0CF11B7C8C0100413F0A /* UIView+Frame.m in Sources */,
 				240A0CD01B7C8BEA00413F0A /* ViewController.m in Sources */,
 				240A0CCD1B7C8BEA00413F0A /* AppDelegate.m in Sources */,
 				240A0CCA1B7C8BEA00413F0A /* main.m in Sources */,
-				240A0CF21B7C8C0100413F0A /* SZCircleView.m in Sources */,
+				24101BB91C0D7CF5009C37AB /* SZCircleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -348,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -428,6 +430,7 @@
 				240A0CE91B7C8BEA00413F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		240A0CEA1B7C8BEA00413F0A /* Build configuration list for PBXNativeTarget "SZCircleViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +439,7 @@
 				240A0CEC1B7C8BEA00413F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

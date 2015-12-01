@@ -7,7 +7,6 @@
 //
 
 #import "SZCircleView.h"
-#import "UIView+Frame.h"
 
 typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     SZCircleViewDirectionNone,
@@ -111,18 +110,22 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
             _pageControl = [[UIPageControl alloc] init];
             [self addSubview:_pageControl];
         }
-        _pageControl.size = [_pageControl sizeForNumberOfPages:_rowCount];
+        CGRect frame = _pageControl.frame;
+        frame.size = [_pageControl sizeForNumberOfPages:_rowCount];
+        _pageControl.frame = frame;
         _pageControl.numberOfPages = _rowCount;
     } else {
         [_pageControl removeFromSuperview];
     }
     
-    if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:pageControloriginWithSize:)]) {
-        _pageControlOrigin = [_circleDelegate circleView:self pageControloriginWithSize:_pageControl.size];
+    if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:pageControlOriginWithSize:)]) {
+        _pageControlOrigin = [_circleDelegate circleView:self pageControlOriginWithSize:_pageControl.frame.size];
     } else {
-        _pageControlOrigin = CGPointMake(self.width/2 - _pageControl.width/2, self.height-_pageControl.height-5);
+        _pageControlOrigin = CGPointMake(self.frame.size.width/2 - _pageControl.frame.size.width/2, self.frame.size.height-_pageControl.frame.size.height-5);
     }
-    _pageControl.top = _pageControlOrigin.y;
+    CGRect frame = _pageControl.frame;
+    frame.origin = _pageControlOrigin;
+    _pageControl.frame = frame;
     
     [self resetTimer];
     
@@ -149,13 +152,13 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     
     _currentIndex++;
     CGPoint offset = self.contentOffset;
-    offset.x = _currentIndex * self.width;
+    offset.x = _currentIndex * self.frame.size.width;
     [self setContentOffset:offset animated:YES];
 }
 
 - (void)relayout {
-    self.contentOffset = CGPointMake(self.width * _currentIndex, 0);
-    self.contentSize = CGSizeMake(_rowCount * self.width, self.height);
+    self.contentOffset = CGPointMake(self.frame.size.width * _currentIndex, 0);
+    self.contentSize = CGSizeMake(_rowCount * self.frame.size.width, self.frame.size.height);
     self.contentInset = UIEdgeInsetsZero;
     
     __weak typeof(self) weakSelf = self;
@@ -176,17 +179,21 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
             [_circleDelegate circleView:self configImageView:visiableImageView atRow:_currentIndex];
         }
     }
-    visiableImageView.left = _currentIndex * self.width;
+    CGRect visiableImageViewFrame = visiableImageView.frame;
+    visiableImageViewFrame.origin.x = _currentIndex * self.frame.size.width;
+    visiableImageView.frame = visiableImageViewFrame;
     visiableImageView.tag = _currentIndex;
     
     [self bringSubviewToFront:_pageControl];
-    _pageControl.centerX = self.contentOffset.x + self.width/2;
+    CGRect pageControlFrame = _pageControl.frame;
+    pageControlFrame.origin = CGPointMake(self.contentOffset.x + _pageControlOrigin.x, _pageControlOrigin.y);
+    _pageControl.frame = pageControlFrame;
 }
 
 
 - (void)cleanInvisiableViews {
     __weak typeof(self) weakSelf = self;
-    CGRect visiableRect = CGRectMake(self.contentOffset.x, 0, self.width, self.height);
+    CGRect visiableRect = CGRectMake(self.contentOffset.x, 0, self.frame.size.width, self.frame.size.height);
     [self.visiableImageViewArray enumerateObjectsUsingBlock:^(UIImageView *obj, NSUInteger idx, BOOL *stop) {
         if (!CGRectIntersectsRect(visiableRect, obj.frame)) {
             [obj removeFromSuperview];
@@ -203,7 +210,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     
     UIImageView *imageView = [self.dequeueImageViewArray lastObject];
     if (!imageView) {
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     } else {
         [self.dequeueImageViewArray removeLastObject];
     }
@@ -270,7 +277,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     
     NSInteger targetTag = 0;
     if (self.direction == SZCircleViewDirectionToShowRight) {
-        targetTag = (scrollView.contentOffset.x / self.width) + 1;
+        targetTag = (scrollView.contentOffset.x / self.frame.size.width) + 1;
         UIImageView *iv = (UIImageView *)[self imageViewWithTag:targetTag];
         NSInteger datasourceIndex = [self datasourceIndexWithTag:targetTag];
         if (!iv) {
@@ -282,14 +289,16 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
             [_circleDelegate circleView:self configImageView:iv atRow:datasourceIndex];
         }
         
-        iv.left = targetTag * self.width;
-        if (self.contentSize.width + self.contentInset.right < iv.right) {
+        CGRect ivFrame = iv.frame;
+        ivFrame.origin.x = targetTag * self.frame.size.width;
+        iv.frame = ivFrame;
+        if (self.contentSize.width + self.contentInset.right < CGRectGetMaxX(iv.frame)) {
             UIEdgeInsets newInset = self.contentInset;
-            newInset.right = iv.right - self.contentSize.width;
+            newInset.right = CGRectGetMaxX(iv.frame) - self.contentSize.width;
             self.contentInset = newInset;
         }
     } else if (self.direction == SZCircleViewDirectionToShowLeft) {
-        targetTag = scrollView.contentOffset.x / self.width;
+        targetTag = scrollView.contentOffset.x / self.frame.size.width;
         if (scrollView.contentOffset.x < 0) {
             targetTag--;
         }
@@ -305,22 +314,26 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
             [_circleDelegate circleView:self configImageView:iv atRow:datasourceIndex];
         }
         
-        iv.left = targetTag * self.width;
-        if (iv.left < 0 && self.contentInset.left < -iv.left) {
+        CGRect ivFrame = iv.frame;
+        ivFrame.origin.x = targetTag * self.frame.size.width;
+        iv.frame = ivFrame;
+        if (iv.frame.origin.x < 0 && self.contentInset.left < -iv.frame.origin.x) {
             UIEdgeInsets newInset = self.contentInset;
-            newInset.left = -iv.left;
+            newInset.left = -iv.frame.origin.x;
             self.contentInset = newInset;
         }
     }    
     
     _lastOffset = scrollView.contentOffset;
 
-    NSInteger newIndex = (NSInteger)round(scrollView.contentOffset.x / scrollView.width) % (NSInteger)self.rowCount;
+    NSInteger newIndex = (NSInteger)round(scrollView.contentOffset.x / scrollView.frame.size.width) % (NSInteger)self.rowCount;
     while (newIndex < 0) {
         newIndex += self.rowCount;
     }
     self.currentIndex = newIndex;
-    self.pageControl.left = self.contentOffset.x + _pageControlOrigin.x;
+    CGRect pageControlFrame = self.pageControl.frame;
+    pageControlFrame.origin.x = self.contentOffset.x + _pageControlOrigin.x;
+    self.pageControl.frame = pageControlFrame;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
