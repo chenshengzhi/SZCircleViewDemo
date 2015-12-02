@@ -177,7 +177,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     visiableImageView.tag = _currentIndex;
     
     [self bringSubviewToFront:_pageControl];
-    _pageControl.centerX = self.contentOffset.x + self.width/2;
+    self.pageControl.left = self.contentOffset.x + _pageControlOrigin.x;
 }
 
 
