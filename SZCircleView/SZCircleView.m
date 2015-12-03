@@ -116,6 +116,8 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
         _pageControl.size = [_pageControl sizeForNumberOfPages:_rowCount];
         _pageControl.numberOfPages = _rowCount;
     } else {
+        [_timer invalidate];
+        _timer = nil;
         [_pageControl removeFromSuperview];
     }
     
