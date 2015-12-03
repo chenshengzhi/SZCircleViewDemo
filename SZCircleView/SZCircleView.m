@@ -122,7 +122,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:pageControlOriginWithSize:)]) {
         _pageControlOrigin = [_circleDelegate circleView:self pageControlOriginWithSize:_pageControl.size];
     } else {
-        _pageControlOrigin = CGPointMake(self.width/2 - _pageControl.width/2, self.height-_pageControl.height-5);
+        _pageControlOrigin = CGPointMake(self.width/2 - _pageControl.width/2, self.height-_pageControl.height);
     }
     _pageControl.top = _pageControlOrigin.y;
     
