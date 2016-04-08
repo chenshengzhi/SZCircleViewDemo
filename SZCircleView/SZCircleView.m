@@ -153,6 +153,10 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 }
 
 - (void)relayout {
+    if (_rowCount == 0) {
+        return;
+    }
+    
     self.contentOffset = CGPointMake(self.width * _currentIndex, 0);
     self.contentSize = CGSizeMake(_rowCount * self.width, self.height);
     self.contentInset = UIEdgeInsetsZero;
@@ -218,6 +222,9 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 
 - (NSInteger)datasourceIndexWithTag:(NSInteger)tag {
     NSInteger dataCount = _rowCount;
+    if (dataCount == 0) {
+        return 0;
+    }
     if (tag >= 0) {
         tag = tag % dataCount;
     }
