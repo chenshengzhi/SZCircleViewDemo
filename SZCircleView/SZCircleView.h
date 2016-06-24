@@ -10,7 +10,9 @@
 
 @protocol SZCircleViewDelegate;
 
-@interface SZCircleView : UIScrollView
+@interface SZCircleView : UIView
+
+@property (nonatomic, readonly, strong) UIPageControl *pageControl;
 
 @property (nonatomic, weak) id <SZCircleViewDelegate>circleDelegate;
 

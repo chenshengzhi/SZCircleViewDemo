@@ -15,7 +15,6 @@
 		240A0CD81B7C8BEA00413F0A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240A0CD61B7C8BEA00413F0A /* LaunchScreen.xib */; };
 		240A0CE41B7C8BEA00413F0A /* SZCircleViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 240A0CE31B7C8BEA00413F0A /* SZCircleViewDemoTests.m */; };
 		243114D81C0D846900FC1323 /* SZCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 243114D61C0D846900FC1323 /* SZCircleView.m */; };
-		50B0BC600BF0921151E3FD9A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088BC1ECA7E3717A972731B2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04DFFA9546877C8F641D7E96 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		088BC1ECA7E3717A972731B2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		240A0CC41B7C8BEA00413F0A /* SZCircleViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZCircleViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		240A0CC81B7C8BEA00413F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		240A0CC91B7C8BEA00413F0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,7 +43,7 @@
 		240A0CE31B7C8BEA00413F0A /* SZCircleViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZCircleViewDemoTests.m; sourceTree = "<group>"; };
 		243114D61C0D846900FC1323 /* SZCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCircleView.m; sourceTree = "<group>"; };
 		243114D71C0D846900FC1323 /* SZCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCircleView.h; sourceTree = "<group>"; };
-		D85A6DE5FF43EE9185EB5203 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FD4136E9688E437610B8D025 /* libPods-SZCircleViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SZCircleViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50B0BC600BF0921151E3FD9A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,8 +71,7 @@
 				240A0CC61B7C8BEA00413F0A /* SZCircleViewDemo */,
 				240A0CE01B7C8BEA00413F0A /* SZCircleViewDemoTests */,
 				240A0CC51B7C8BEA00413F0A /* Products */,
-				58F057169CF933AFA1535DE8 /* Pods */,
-				AC4186BD7D0724ED49F94752 /* Frameworks */,
+				DF71E7026D12640EB21C43DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,19 +134,10 @@
 			path = SZCircleView;
 			sourceTree = "<group>";
 		};
-		58F057169CF933AFA1535DE8 /* Pods */ = {
+		DF71E7026D12640EB21C43DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D85A6DE5FF43EE9185EB5203 /* Pods.debug.xcconfig */,
-				04DFFA9546877C8F641D7E96 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		AC4186BD7D0724ED49F94752 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				088BC1ECA7E3717A972731B2 /* libPods.a */,
+				FD4136E9688E437610B8D025 /* libPods-SZCircleViewDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,12 +149,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 240A0CE71B7C8BEA00413F0A /* Build configuration list for PBXNativeTarget "SZCircleViewDemo" */;
 			buildPhases = (
-				0BFA7CEE77C0F98131FBB891 /* Check Pods Manifest.lock */,
 				240A0CC01B7C8BEA00413F0A /* Sources */,
 				240A0CC11B7C8BEA00413F0A /* Frameworks */,
 				240A0CC21B7C8BEA00413F0A /* Resources */,
-				992A8A8A51B7A3C29FBBDB73 /* Embed Pods Frameworks */,
-				954E22E605E3B69A4AE9838D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,54 +236,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0BFA7CEE77C0F98131FBB891 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		954E22E605E3B69A4AE9838D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		992A8A8A51B7A3C29FBBDB73 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		240A0CC01B7C8BEA00413F0A /* Sources */ = {
@@ -434,7 +369,6 @@
 		};
 		240A0CE81B7C8BEA00413F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D85A6DE5FF43EE9185EB5203 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SZCircleViewDemo/Info.plist;
@@ -445,7 +379,6 @@
 		};
 		240A0CE91B7C8BEA00413F0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04DFFA9546877C8F641D7E96 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SZCircleViewDemo/Info.plist;

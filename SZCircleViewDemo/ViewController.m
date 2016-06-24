@@ -11,26 +11,45 @@
 
 @interface ViewController () <SZCircleViewDelegate>
 
+@property (nonatomic, strong) SZCircleView *circleView;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    SZCircleView *scrollView = [[SZCircleView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
-    scrollView.circleDelegate = self;
-    [self.view addSubview:scrollView];
-    [scrollView reloadData];
+
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    _circleView = [[SZCircleView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 200)];
+    _circleView.circleDelegate = self;
+    [self.view addSubview:_circleView];
+    [_circleView reloadData];
+
+    self.navigationItem.rightBarButtonItems = @[
+                                                [[UIBarButtonItem alloc] initWithTitle:@"push"
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(pushActionHandler)],
+                                                [[UIBarButtonItem alloc] initWithTitle:@"relolad    "
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:_circleView
+                                                                                action:@selector(reloadData)]
+                                                ];
+}
+
+- (void)pushActionHandler {
+    [self.navigationController pushViewController:[[ViewController alloc] init] animated:YES];
 }
 
 #pragma mark - SZCircleViewDelegate -
 - (NSInteger)numberRowInCircleView:(SZCircleView *)circleView  {
-    return 3;
+    return arc4random() % 4;
 }
 
 - (void)circleView:(SZCircleView *)circleView configImageView:(UIImageView *)imageView atRow:(NSInteger)atRow {
-    imageView.backgroundColor = [UIColor colorWithWhite:0.3 + 0.2*atRow alpha:1];
+    imageView.backgroundColor = [UIColor colorWithWhite:0.2 + 0.2*atRow alpha:1];
 }
 
 @end
