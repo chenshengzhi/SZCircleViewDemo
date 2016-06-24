@@ -52,4 +52,8 @@
     imageView.backgroundColor = [UIColor colorWithWhite:0.2 + 0.2*atRow alpha:1];
 }
 
+- (void)circleView:(SZCircleView *)circleView tapAtRow:(NSInteger)tapRow {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, @(tapRow));
+}
+
 @end

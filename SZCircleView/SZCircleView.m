@@ -338,7 +338,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 }
 
 - (void)tapHandle:(UITapGestureRecognizer *)tapGesture {
-    CGPoint point = [tapGesture locationInView:self];
+    CGPoint point = [tapGesture locationInView:self.scrollView];
     for (SZCircleViewImageView *iv in self.visiableImageViewArray) {
         if (CGRectContainsPoint(iv.frame, point)) {
             NSInteger datasourceIndex = [self datasourceIndexWithIndex:iv.index];
