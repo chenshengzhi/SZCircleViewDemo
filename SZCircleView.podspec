@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SZCircleView"
 
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
 
   s.summary      = "circle scrollview"
 
@@ -20,7 +20,5 @@ Pod::Spec.new do |s|
   s.source_files = "SZCircleView/*.{h,m}"
 
   s.requires_arc = true
-
-  s.dependency 'SZFrameHelper'
 
 end
