@@ -8,6 +8,8 @@
 
 #import "SZCircleView.h"
 
+#define DEBUG_RELEASE 0
+
 typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     SZCircleViewDirectionNone,
     SZCircleViewDirectionToShowLeft,
@@ -25,7 +27,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 @implementation SZCircleViewImageView
 
 - (void)dealloc {
-#ifdef DEBUG
+#if DEBUG_RELEASE
     NSLog((@" %d %s"), __LINE__, __PRETTY_FUNCTION__);
 #endif
 }
@@ -61,7 +63,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 }
 
 - (void)dealloc {
-#ifdef DEBUG
+#if DEBUG_RELEASE
     NSLog((@" %d %s"), __LINE__, __PRETTY_FUNCTION__);
 #endif
 }
@@ -140,7 +142,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 }
 
 - (void)dealloc {
-#ifdef DEBUG
+#if DEBUG_RELEASE
     NSLog((@" %d %s"), __LINE__, __PRETTY_FUNCTION__);
 #endif
     if (_timer) {
