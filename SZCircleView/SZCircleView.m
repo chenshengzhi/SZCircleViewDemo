@@ -101,6 +101,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     [self addSubview:_scrollView];
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
+    _scrollView.scrollsToTop = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
 
