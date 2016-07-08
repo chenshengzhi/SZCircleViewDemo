@@ -117,13 +117,6 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     [self addGestureRecognizer:_tapGesutre];
 }
 
-- (instancetype)init {
-    if (self = [super init]) {
-        [self setup];
-    }
-    return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self setup];
