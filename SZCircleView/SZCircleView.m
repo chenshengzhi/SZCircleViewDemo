@@ -250,7 +250,7 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
     }
 
     if (_currentIndex >= _rowCount) {
-        _currentIndex = _rowCount - 1;
+        self.currentIndex = _rowCount - 1;
     }
     
     _scrollView.contentOffset = CGPointMake(self.frame.size.width * _currentIndex, 0);
