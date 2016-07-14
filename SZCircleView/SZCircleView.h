@@ -41,4 +41,6 @@
 
 - (CGPoint)circleView:(SZCircleView *)circleView pageControlOriginWithSize:(CGSize)pageControlSize;
 
+- (void)circleView:(SZCircleView *)circleView didChangeCurrentIndex:(NSInteger)currentIndex;
+
 @end

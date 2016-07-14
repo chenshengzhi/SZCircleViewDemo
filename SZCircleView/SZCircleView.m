@@ -156,8 +156,15 @@ typedef NS_ENUM(NSInteger, SZCircleViewDirection) {
 #pragma mark - 方法重载 -
 - (void)setCurrentIndex:(NSInteger)currentIndex {
     if (_currentIndex != currentIndex) {
+        [self willChangeValueForKey:@"currentIndex"];
         _currentIndex = currentIndex;
+        [self didChangeValueForKey:@"currentIndex"];
+
         _pageControl.currentPage = currentIndex;
+
+        if (_circleDelegate && [_circleDelegate respondsToSelector:@selector(circleView:didChangeCurrentIndex:)]) {
+            [_circleDelegate circleView:self didChangeCurrentIndex:_currentIndex];
+        }
     }
 }
 
